@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Favicon-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/img/logo/Favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/img/logo/Favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/img/logo/Favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/img/logo/Favicon/site.webmanifest" />
+    <!--Pseudoelementos CSS-->
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="./assets/mediaqueries.css">
+    <link rel="stylesheet" href="./assets/animaciones.css">
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>La Vecina JS</title>
+</head>
+<body>
+    <header>
+        <img src="./assets/img/logo/La-Vecina.png" alt="logo-la-vecina" class="logo">
+        <nav class="navbar">
+            <div class="menu-label">
+                <img src="./assets/img/Icon/menu.png" alt="" class="menu-icon" />
+            </div>
+
+            <ul class="navbar-list">
+                <li class="navbar-link"><a href="">Inicio</a></li>
+                <li class="navbar-link"><a href=""></a>Sobre Nosotros</li>
+                <li class="navbar-link"><a href=""></a>Contactanos</li>
+                <li class="navbar-link"><a href=""></a>Inicia Sesion</li>
+            </ul>
+
+            <div class="cart-label">
+                <i class="fa-solid fa-cart-shopping cart-icon">
+                    <div class="cart-bubble">0</div>
+                  </i>
+            </div>
+
+            <div class="cart">
+
+                <h2>Tus Selecciones</h2>
+                
+                <div class="cart-container">
+
+                    <div><span class="divider"></span></div>
+
+                    <div class="cart-total">
+                        <p>Total</p>
+                        <span class="total">0.0 BTC</span>
+                    </div>
+                    <button class="btn-but">Comprar</button>
+                    <button class="btn-delete">Vaciar Carrito</button>
+
+                </div>
+
+                <div class="overlay"></div>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <!--Hero-->
+        <section id="hero">
+            <div class="hero-info">
+                <h1>Té...</h1>
+          <p>
+            El té aviva nuestra imaginación, reprime los vapores que invaden la
+            cabeza y mantiene sereno el palacio del alma.
+            <br />
+            <span>-Edmund Waller-</span>
+          </p>
+        </div>
+        <div class="hero-card">
+          <img src="./assets/img/tacita de té.png" alt="tacita de té" />
+        </div>
+            </div>
+        </section>
+        <!--Info o Discover-->
+        <section id="info">
+            <div class="info-text">
+                <h2>Nuestra historia</h2>
+                <p>
+                  La Vecina nace en 2915 como un emprendiomiento familiar, pero con el
+                  empuje y desición de las grandes empresas, en unas pequeñas
+                  instalaciones de la ciudad de Rosario, Santa Fe, Argentina.
+                  <br />
+                  A partir de 2940 pone en práctica su expanción geografica guiada por
+                  un plan estratégico de distribución, consistente en la
+                  multiplicación del número de sucursales, que hoy se emplazan en
+                  practicamente toda la Argentina.
+                  <br />
+                  Su firme visión de largo plazo, evidenciada por una constante
+                  inversión en tecnologia e innovación y por el fortalecimiento de su
+                  relación con proveedores, clientes y empleados, ha convertido aquel
+                  pequeño emprendimiento inicial en una empresa lider a nivel
+                  nacional, con una consolidación regional y proyección mundial.
+                </p>
+        </section>
+        <!--Products-->
+        <section id="products">
+
+            <h2>Nuestros Productos</h2>
+
+            <!--categorias-->
+            <div class="categories">
+                <button class="category" data-category="Saborizados">Saborizados</button>
+                <button class="category" data-category="Herboristeria">Herboristeria</button>
+                <button class="category" data-category="Especiales">Especiales</button>
+            </div>
+            <!--productos-->
+            <div class="products-container">
+                <div>
+                    <button class="btn-load">Ver más</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <footer>
+            <div class="footer-container">
+              <h2>Contacto</h2>
+              <ul class="footer-list">
+                <li>
+                  <p>E Indian School Rd street</p>
+                </li>
+                <li>
+                  <p>LaVecina77@gmail.com</p>
+                </li>
+                <li>
+                  <p>(+1) 408 354 9852</p>
+                </li>
+              </ul>
+              <img
+                src="./assets/img/logo/Redes Sociales N.png"
+                alt="redes_sociales"
+              />
+            </div>
+            <div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.4890642561086!2d-111.9603234!3d33.488650799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0d830bf88a63%3A0x8afc9ecb9a337e14!2sVecina!5e0!3m2!1ses!2sar!4v1686681254834!5m2!1ses!2sar"
+                width="200"
+                height="200"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </footer>
+    </footer>
+    <script src="./assets/data.js"></script>
+    <script src="./assets/index.js"></script>
+    
+</body>
+</html>
