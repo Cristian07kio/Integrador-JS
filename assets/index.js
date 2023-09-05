@@ -1,0 +1,7 @@
+const productsContainer = document.querySelector('.products-container')
+const productsCart = document.querySelector('.cart-container')
+const total = document.querySelector('.total')
+const categoriesContainer = document.querySelector('.categories')
+const categoriesList = document.querySelectorAll('.category')
+const showMoreBtn = document.querySelector('.btn-load')
+const buyBtn = document.querySelector('.btn-buy')
