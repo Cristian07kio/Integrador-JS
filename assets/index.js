@@ -53,3 +53,24 @@ const createProductTemplate = (product) => {
 const renderProducts = (productsList) => {
     productsContainer.innerHTML +=productList.map(createProductTemplate).join("")
 }
+
+const isLastIndexOf = () => {
+    return appState.currentProductsIndex === appState.productLimit -1
+}
+
+const showMoreProducts = () => {
+    appState.currentProductsIndex += 1
+    let {products, currentProductsIndex} = appState
+    renderProducts(products, [currentProductsIndex])
+    if(isLastIndexOf()){
+        shoeMoreBtn.classList.add("hidden")
+    }
+}
+
+const setShowMoreVisibility = () => {
+    if (!appState.activeFilter){
+        showMoreBtn.classList.remove("hidden")
+        return;
+    }
+    showMoreBtn.classList.add("hidden")
+}

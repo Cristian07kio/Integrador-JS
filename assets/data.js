@@ -162,3 +162,18 @@ const producData = [
     },
     
 ]
+
+const divideProductsInParts = (size) => {
+    let productList = []
+    for (let i = 0; i < producData.length; i+= size){
+        productList.push(producData.slice(i,i + size))
+    }
+    return productList;
+}
+
+const appState = {
+    products : divideProductsInParts(6),
+    currentProductsIndex : 0,
+    productsLimit : divideProductsInParts(6).length,
+    activeFilter : null
+}
