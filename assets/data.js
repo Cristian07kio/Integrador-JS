@@ -172,8 +172,8 @@ const divideProductsInParts = (size) => {
 }
 
 const appState = {
-    products : divideProductsInParts(6),
+    products : divideProductsInParts(4),
     currentProductsIndex : 0,
-    productsLimit : divideProductsInParts(6).length,
+    productsLimit : divideProductsInParts(4).length,
     activeFilter : null
 }
