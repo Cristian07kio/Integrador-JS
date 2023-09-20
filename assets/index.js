@@ -17,8 +17,8 @@ const deleteBtn = document.querySelector('.btn-delete');
 let cart = JSON.parse(localStorage.getItem('cart')) || []
 
 const createProductTemplate = (product) => {
-    const {id, name, bid, cardImg } = product;
-    return `
+  const { id, name, bid, user, userImg, cardImg } = product;
+  return `
     <div class="product">
     <img src=${cardImg} alt=${name} />
     <div class="product-info">
@@ -29,6 +29,10 @@ const createProductTemplate = (product) => {
         </div>
 
         <div class="product-mid">
+            <div class="product-user">
+                <img src=${userImg} alt="user" />
+                <p>@${user}</p>
+            </div>
             <span>${bid} BTC</span>
         </div>
 
@@ -50,7 +54,7 @@ const createProductTemplate = (product) => {
 </div>`;
 };
 
-const renderProducts = (productsList) => {
+const renderProducts = (productList) => {
     productsContainer.innerHTML +=productList.map(createProductTemplate).join('')
 };
 
@@ -253,7 +257,7 @@ const addUnitToProduct = (product) => {
     : cartProduct);
 };
 
-const createCartPorduct = ( product) =>{
+const createCartProduct = ( product) =>{
   cart = [...cart, {...product, quantity: 1}]
 };
 
