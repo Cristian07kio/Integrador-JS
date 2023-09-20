@@ -1,20 +1,20 @@
-const productsContainer = document.querySelector('.products-container')
-const productsCart = document.querySelector('.cart-container')
-const total = document.querySelector('.total')
-const categoriesContainer = document.querySelector('.categories')
-const categoriesList = document.querySelectorAll('.category')
-const showMoreBtn = document.querySelector('.btn-load')
-const buyBtn = document.querySelector('.btn-buy')
-const cartBubble = document.querySelector('.cart-bubble')
-const cartBtn = document.querySelector('.cart-label')
-const menuBtn = document.querySelector('.menu-label')
-const cartMenu = document.querySelector('.cart')
-const barsMenu = document.querySelector('.navbar-list')
-const overlay = document.querySelector('.overlay')
-const successModal = document.querySelector('.add-modal')
-const deleteBtn = document.querySelector('.btn-delete')
+const productsContainer = document.querySelector('.products-container');
+const productsCart = document.querySelector('.cart-container');
+const total = document.querySelector('.total');
+const categoriesContainer = document.querySelector('.categories');
+const categoriesList = document.querySelectorAll('.category'); 
+const showMoreBtn = document.querySelector('.btn-load');
+const buyBtn = document.querySelector('.btn-buy');
+const cartBubble = document.querySelector('.cart-bubble');
+const cartBtn = document.querySelector('.cart-label');
+const menuBtn = document.querySelector('.menu-label');
+const cartMenu = document.querySelector('.cart');
+const barsMenu = document.querySelector('.navbar-list');
+const overlay = document.querySelector('.overlay');
+const successModal = document.querySelector('.add-modal');
+const deleteBtn = document.querySelector('.btn-delete');
 
-let cart = JSON.parse(localStorage.getItem("cart")) || []
+let cart = JSON.parse(localStorage.getItem('cart')) || []
 
 const createProductTemplate = (product) => {
     const {id, name, bid, cardImg } = product;
@@ -51,115 +51,123 @@ const createProductTemplate = (product) => {
 };
 
 const renderProducts = (productsList) => {
-    productsContainer.innerHTML +=productList.map(createProductTemplate).join("")
+    productsContainer.innerHTML +=productList.map(createProductTemplate).join('')
 };
 
 const isLastIndexOf = () => {
-    return appState.currentProductsIndex === appState.productLimit -1
+    return appState.currentProductsIndex === appState.productsLimit -1;
 };
 
 const showMoreProducts = () => {
-    appState.currentProductsIndex += 1
-    let {products, currentProductsIndex} = appState
-    renderProducts(products, [currentProductsIndex])
-    if(isLastIndexOf()){
-        shoeMoreBtn.classList.add("hidden")
+  appState.currentProductsIndex += 1;
+    let { products, currentProductsIndex } = appState;
+    renderProducts(products[currentProductsIndex]);
+    if (isLastIndexOf()) {
+      showMoreBtn.classList.add('hidden');
     }
 };
 
 const setShowMoreVisibility = () => {
-    if (!appState.activeFilter){
-        showMoreBtn.classList.remove("hidden")
-        return;
-    }
-    showMoreBtn.classList.add("hidden")
+  if (!appState.activeFilter) {
+    showMoreBtn.classList.remove('hidden');
+    return;
+  }
+  showMoreBtn.classList.add('hidden');
 };
 
-const changeBtnActiveState =  (selectedCategory) => {
-    const categories = [...categoriesList]
-    categories.forEach((categoryBtn) =>{
-        if(categoryBtn.dataset.category !== selectedCategory){
-            categoryBtn.classList.remove("active")
-            return;
-        }
-        categoryBtn.classList.add("active")
-    })
+const changeBtnActiveState = (selectedCategory) => {
+  const categories = [...categoriesList];
+  categories.forEach((categoryBtn) => {
+    if (categoryBtn.dataset.category !== selectedCategory) {
+      categoryBtn.classList.remove('active');
+      return;
+    }
+    categoryBtn.classList.add('active');
+  });
 };
 
 const changeFilterState = (btn) => {
-    appState.activeFilter = btn.dataset.category
-    changeBtnActiveState(appState.activateFilter)
-    setShowMoreVisibility(appState.activateFilter)
+  appState.activeFilter = btn.dataset.category;
+  changeBtnActiveState(appState.activeFilter);
+  setShowMoreVisibility(appState.activeFilter);
 };
 
 const isInactiveFilterBtn = (element) => {
-    return (
-        element.classList.contains("category") && !element.classList.contains("activate")
-    )
+  return (
+    element.classList.contains('category') &&
+    !element.classList.contains('active')
+  );
 };
 
 const applyFilter = (event) => {
-    const { target } = event
-    if(isInactiveFilterBtn(target)) return;
-    productsContainer.innerHTML =""
+  const { target } = event;
+  console.log(target);
+  if (!isInactiveFilterBtn(target)) return;
+  productsContainer.innerHTML = '';
 
-    if(appState.activateFilter){
-        renderFilteredProducts();
-        appState.currentProductsIndex = 0;
-        return;
-    }
+  changeFilterState(target)
+  if (appState.activeFilter) {
+    renderFilteredProducts();
+    appState.currentProductsIndex = 0;
+    return;
+  }
 
-    renderProducts(appState.products[0])
+  renderProducts(appState.products[0]);
     
 };
 
 const renderFilteredProducts = () => {
-    const FilteredProducts = productsData.filter(
-        (product) => product.category === appState.activeFilter
-    );
-    renderProducts(FilteredProducts)
+  const filteredProducts = productsData.filter(
+    (product) => product.category === appState.activeFilter
+  );
+  renderProducts(filteredProducts)
 };
 
 const toggleMenu = () => {
-    barsMenu.classList.toggle("open-menu")
-    if (cartMenu.classList.contains("open-cart")){
-        cartMenu.classList.remove("open-cart")
-        return;
-    }
-    overlay-classList.toggle("show-overlay")
+  barsMenu.classList.toggle('open-menu');
+  if (cartMenu.classList.contains('open-cart')) {
+    cartMenu.classList.remove('open-cart');
+    return;
+  }
+  overlay.classList.toggle('show-overlay');
 };
 
 const toggleCart = () => {
-    cartMenu.classList.toggle("open-cart")
-    if(barsMenu.classList.contains("open-menu")){
-        barsMenu.classList.remove("open-menu")
-        return;
-    }
-    overlay.classList.toggle("show-overlay")
-};
+  cartMenu.classList.toggle('open-cart');
+  if (barsMenu.classList.contains('open-menu')) {
+    barsMenu.classList.remove('open-menu');
+    return;
+  }
+  overlay.classList.toggle('show-overlay');
+}
 
 const closeOnClick = (e) => {
-    if(!e.target.classList.remove("navbar-link"))return;
-    barsMenu.classList.remove("open-menu")
-    overlay.classList.remove("show-overlay")
+  if (!e.target.classList.contains('navbar-link')) return;
+  barsMenu.classList.remove('open-menu');
+  overlay.classList.remove('show-overlay');
 };
 
 const closeOnScroll = () => {
-    if (
-        !barsMenu.classList.contains("open-menu") &&
-        !cartMenu.classList.contains("open-cart")
-    )
+  if (
+    !barsMenu.classList.contains('open-menu') &&
+    !cartMenu.classList.contains('open-cart')
+  )
     return;
 
-    barsMenu.classList.remove("open-menu");
-    cartMenu.classList.remove("open-cart");
-    overlay.classList.remove("show-overlay");
+  barsMenu.classList.remove('open-menu');
+  cartMenu.classList.remove('open-cart');
+  overlay.classList.remove('show-overlay');
+};
 
+const closeOnOverlayClick = () => {
+  barsMenu.classList.remove('open-menu');
+  cartMenu.classList.remove('open-cart');
+  overlay.classList.remove('show-overlay');
 };
 
 
 const createCartProductTemplate = (cartProduct) =>{
-    const {id,name,bid,img,quantity} = cartProduct
+    const { id, name, bid, img, quantity } = cartProduct;
     return `    
     <div class="cart-item">
       <img src=${img} alt="Te del carrito" />
@@ -177,78 +185,85 @@ const createCartProductTemplate = (cartProduct) =>{
 };
 
 
-const renderCart  = () => {
-    if (!cart.length){
-        productsCart.innerHTML = '<p class="empty-msg">No hay productos en el carrito.</p>';
-        return;
-    }
-    productsCart.innerHTML = cart.map(createCartProductTemplate).join("")
+const renderCart = () => {
+  if (!cart.length) {
+    productsCart.innerHTML = `<p class="empty-msg">No hay ningun TE en el carrito.</p>`;
+    return;
+  }
+  productsCart.innerHTML = cart.map(createCartProductTemplate).join('');
 };
 
 
 const getCartTotal = () => {
-    return cart.reduce((accumulator,current) => accumulator + NUmber(current.bid) * current.quantity, 0)
-}
+  return cart.reduce(
+    (accumulator, current) =>
+      accumulator + Number(current.bid) * current.quantity,
+    0
+  );
+};
 
 const showCartTotal = () => {
-    total.innerHTML = `${getCartTotal().toFixed(2)} BTC`;
-  };
+  total.innerHTML = `${getCartTotal().toFixed(2)} BTC`;
+};
 
 
 const renderCartBubble = () => {
-    cartBubble.textContent = cart.reduce((acc, cur) => acc + cur.quantity, 0);
-  };
+  cartBubble.textContent = cart.reduce((acc, cur) => acc + cur.quantity, 0);
+};
 
 const disableBtn = (btn) => {
-    if (!cart.length) {
-      btn.classList.add('disabled');
-    } else {
-      btn.classList.remove('disabled');
-    }
+  if (!cart.length) {
+    btn.classList.add('disabled');
+  } else {
+    btn.classList.remove('disabled');
+  }
+};
+
+const saveCart = () => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+};
+
+const updateCartState = () => {
+  saveCart();
+  renderCart();
+  showCartTotal();
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  renderCartBubble();
+};
+
+
+const createProductData = ({ id, name, bid, img }) => {
+  return {
+    id,
+    name,
+    bid,
+    img,
   };
-
-  const saveCart = () => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  };
-
-  const updateCartState = () => {
-    saveCart();
-    renderCart();
-    showCartTotal();
-    disableBtn(buyBtn);
-    disableBtn(deleteBtn);
-    renderCartBubble();
-  };
+}
 
 
-  const createProductData = ({ id, name, bid, img }) => {
-    return {
-      id,
-      name,
-      bid,
-      img,
-    };
-  };
+const isExistingCartProduct = (product) => {
+  return cart.find((item) => item.id === product.id);
+};
 
+const addUnitToProduct = (product) => {
+  cart = cart.map((cartProduct) => cartProduct.id === product.id
+    ? { ...cartProduct, quantity: cartProduct.quantity + 1 }
+    : cartProduct);
+};
 
-  const addUnitToProduct = (product) => {
-    cart = cart.map((cartProduct) => cartProduct.id === product.id
-      ? { ...cartProduct, quantity: cartProduct.quantity + 1 }
-      : cartProduct);
-  };
-
-
-  const createCartProduct = ( product) =>{
-    cart = [...cart, {...product, quantity: 1}]
+const createCartPorduct = ( product) =>{
+  cart = [...cart, {...product, quantity: 1}]
 };
 
 
 const showSuccessModal = (msg) => {
-    successModal.classList.add("active-modal")
-    successModal.textContent = msg
-    setTimeout(() =>{
-        successModal.classList.remove("active-modal")
-    }, 1500)
+  successModal.classList.add("active-modal")
+  successModal.textContent = msg
+  setTimeout(() =>{
+      successModal.classList.remove("active-modal")
+  }, 1500)
 };
 
 const addProduct = (e) => {

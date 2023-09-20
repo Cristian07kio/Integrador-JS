@@ -1,39 +1,38 @@
 /* font */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 :root {
   /* bg colors */
   --background: #02050e;
-  --primary: #1e50ff;
-  --secondary: #272d37;
-  --btn-bg: #050d26;
-  --bg-azul-10: #e9eeff;
+  --primary: darkred;
+  --secondary: darkgoldenrod;
+  --btn-bg: #260505;
   --bg-white: #fff;
   --bg-electric: #f0fbff;
-  --nav-bg: #0f1525;
+  --nav-bg: #6f0000;
 
   /* Text colors */
-  --text-gray: #adb9c7;
+  --text-black: black;;
   --text-white: #f3f4f6;
 
   /* Decoration */
   --fire: #ff6d00;
-  --electric: #64d3ff;
+  --electric: #9c0c41;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
   text-decoration: none;
   list-style-type: none;
+  font-family: "Pacifico";
 }
 
 /*header*/
 
 header {
-  background: linear-gradient(to bottom, #121e3c, var(--background));
+  background: linear-gradient(to right, #200122, #6f0000);
   width: 100%;
   position: fixed;
   top: 0;
@@ -47,7 +46,7 @@ header {
 }
 
 .logo {
-  height: 40%;
+  height: 95%;
 }
 
 .navbar,
@@ -65,7 +64,7 @@ header {
 }
 
 .navbar-list a {
-  color: var(--text-gray);
+  color: var(--text-white);
   font-size: 14px;
 }
 
@@ -102,8 +101,6 @@ header {
   border-radius: 50%;
 }
 
-/* MENU HAMBURGUESA Desktop */
-/* AGREGADO CLASE 10 */
 
 .menu-label {
   display: none;
@@ -115,7 +112,7 @@ header {
   top: 65px;
   right: 0;
   padding: 50px 30px;
-  background: linear-gradient(to top, #121e3c, var(--background));
+  background: linear-gradient(to right, #200122, #6f0000);
   border-left: 1px solid var(--nav-bg);
   display: flex;
   flex-direction: column;
@@ -133,7 +130,7 @@ header {
   flex-direction: column;
   gap: 20px;
 }
-/*OCULTAR BARRA DE SCROLL DEL CARRITO*/
+
 
 .cart::-webkit-scrollbar {
   display: none;
@@ -150,7 +147,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: #2323234e;
+  background-color: #2501014e;
   padding: 20px;
   border: 1px solid var(--electric);
   border-radius: 10px;
@@ -174,13 +171,13 @@ header {
 }
 
 .item-bid {
-  color: var(--text-gray);
+  color: var(--text-white);
   font-weight: 300;
   font-size: 12px;
 }
 
 .item-price {
-  background: linear-gradient(to right, #30cfd0, #c43ad6);
+  background: linear-gradient(to right, #200122, #6f0000);
   background-clip: text;
   color: transparent;
   -webkit-background-clip: text;
@@ -206,7 +203,7 @@ header {
 }
 
 .item-quantity {
-  color: var(--text-gray);
+  color: var(--text-black);
 }
 
 .up {
@@ -242,18 +239,17 @@ header {
   font-size: 18px;
 }
 
-/*Toggle del carro*/
+
 .open-cart {
   transform: translate(0%);
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 }
 
 .empty-msg {
-  color: var(--text-gray);
+  color: var(--secondary);
   font-size: 14px;
 }
 
-/*main*/
 main {
   background: var(--background);
   display: flex;
@@ -284,34 +280,24 @@ main {
 .hero-info h1 {
   font-size: 48px;
   width: 80%;
-  min-width: 500px; /*Para que nunca ocupe menos que esto en desktop*/
+  min-width: 500px; 
   font-weight: 800;
-  /*Agregamos gradiente en clase 10*/
-  background: linear-gradient(to top, #30cfd0, #c43ad6);
+  background: linear-gradient(to right, #200122, #6f0000);
   background-clip: text;
   color: transparent;
   -webkit-background-clip: text;
 }
 
 .hero-info p {
-  font-size: 14px;
+  font-size: 20px;
   width: 70%;
-  color: var(--text-gray);
+  color: var(--secondary);
 }
 
 .hero-info p > span {
   font-weight: 800;
 }
 
-.hero-info a {
-  color: var(--text-white);
-  background-color: var(--primary);
-  width: 120px;
-  padding: 8px 0px;
-  border-radius: 10px;
-  font-size: 14px;
-  text-align: center;
-}
 
 .hero-card {
   width: 300px;
@@ -358,20 +344,10 @@ main {
   justify-content: space-between;
 }
 
-.hero-card-creator {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.hero-card-creator img {
-  height: 40px;
-  width: 40px;
-}
 
 .creator-info p:first-child,
 .hero-card-price p {
-  color: var(--text-gray);
+  color: var(--secondary);
   font-size: 12px;
   font-weight: 300px;
 }
@@ -392,104 +368,46 @@ main {
   font-weight: 700;
 }
 
-/* Info Card */
+
+/* Info o Discover Section */
 #info {
   padding: 70px 0;
   max-width: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 80px;
 }
 
-#info h2 {
-  font-size: 32px;
-  font-weight: 800;
-}
-
-.info-cards-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.info-card {
-  width: 300px;
-  height: 290px;
-  padding: 40px 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: var(--secondary);
-  border-radius: 10px;
-  gap: 20px;
-}
-
-.info-card img {
-  width: 50px;
-}
-
-.info-card h3 {
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.info-card p {
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--text-gray);
-}
-
-/* Discover Section */
-#discover {
-  padding: 70px 0;
-  max-width: 1200px;
-}
-
-.discover-info {
+.info-text {
+  color: var(--secondary);
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 50px;
 }
 
-#discover h2 {
-  font-size: 32px;
+#info h2 {
+  color: var(--nav-bg);
+  font-size: 40px;
   width: 45%;
   font-weight: 800;
 }
 
-.discover-text {
+/*.info-text {
   display: flex;
   flex-direction: column;
   width: 45%;
   gap: 20px;
-}
+}*/
 
-.discover-text p {
+.info-text p {
   font-size: 16px;
   font-weight: 300;
   color: var(--text-gray);
 }
-.discover-text a {
+.info-text a {
   color: var(--text-white);
   font-weight: 600;
   text-decoration: underline;
 }
 
-.discover-cards {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-}
-
-.discover-cards img {
-  width: 30%;
-}
 
 /* Products Section */
 #products {
@@ -576,7 +494,7 @@ main {
 .product-user p {
   font-size: 16px;
   font-weight: 400;
-  color: var(--text-gray);
+  color: var(--text-black);
 }
 
 .product-user {
@@ -651,7 +569,7 @@ footer {
   background: var(--background);
   color: var(--bg-white);
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
   justify-content: center;
   align-items: center;
   gap: 40px;
@@ -660,7 +578,7 @@ footer {
 
 footer a,
 footer p {
-  color: var(--text-gray);
+  color: var(--secondary);
   font-weight: 300;
   font-size: 14px;
 }
@@ -680,13 +598,13 @@ footer span {
 }
 
 .disabled {
-  background-color: var(--text-gray);
+  background-color: var(--text-black);
   color: white;
   cursor: not-allowed;
   border: none;
 }
 .disabled:hover {
-  background-color: var(--text-gray);
+  background-color: var(--text-black);
   color: white;
   cursor: not-allowed;
   border: none;
@@ -711,11 +629,6 @@ footer span {
   transition: all 0.5s ease-in;
 }
 
-/**
- * ----------------------------------------
- * animation fade-in
- * ----------------------------------------
- */
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
