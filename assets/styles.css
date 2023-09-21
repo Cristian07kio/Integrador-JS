@@ -569,7 +569,6 @@ footer {
   background: var(--background);
   color: var(--bg-white);
   display: flex;
-  /*flex-direction: column;*/
   justify-content: center;
   align-items: center;
   gap: 40px;
