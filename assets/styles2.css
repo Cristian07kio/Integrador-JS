@@ -51,7 +51,9 @@ body {
 .titulo-formulario{
     text-align: center;
     margin-top: 0;
-    color: var(--secondary);
+    color: var(--primary);
+    background-image: url(./img/tipos-de-te/Te-Negro.png);
+    background-size:contain;
 }
 
 .formulario-input, .formulario-label, .formulario-submit{
