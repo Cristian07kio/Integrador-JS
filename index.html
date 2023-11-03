@@ -24,8 +24,7 @@
     <link rel="manifest" href="./assets/img/logo/Favicon/site.webmanifest" />
     <!--Pseudoelementos CSS-->
     <link rel="stylesheet" href="./assets/styles.css">
-    <link rel="stylesheet" href="./assets/mediaqueries.css">
-    <link rel="stylesheet" href="./assets/animaciones.css">
+    <link rel="stylesheet" href="./assets/mediaquerries.css">
     <!--Font Awesome-->
     <link
       rel="stylesheet"
@@ -34,49 +33,50 @@
     <title>La Vecina JS</title>
 </head>
 <body>
-    <header>
-        <img src="./assets/img/logo/La-Vecina.png" alt="logo-la-vecina" class="logo">
+    <header class="navbar-home">
+        <img class="logo" src="./assets/img/logo/La-Vecina.png" alt="logo-la-vecina" >
         <nav class="navbar">
-            <div class="menu-label">
-                <img src="./assets/img/Icon/menu.png" alt="" class="menu-icon" />
-            </div>
-
+            <label for="menu-toggle" class="menu-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <input type="checkbox" id="menu-toggle">
             <ul class="navbar-list">
-                <li class="navbar-link"><a href="#hero">Inicio</a></li>
-                <li class="navbar-link"><a href="#info">Sobre Nosotros</a></li>
-                <li class="navbar-link"><a href="#footer">Contactanos</a></li>
-                <li class="navbar-link"><a href="./registro.html">Inicia Sesion</a></li>
-                <li class="navbar-link"><a href="./registro.html">Registrate</a></li>
+                <li><a href="#store">Tienda</a></li>
+                <li><a href="#info">Sobre Nosotros</a></li>
+                <li><a href="#contact">Contactanos</a></li>
+                <li><a href="./login.html">Inicia Sesion</a></li>
+                <li><a href="./registro.html">Registrate</a></li>
             </ul>
-
-            <div class="cart-label">
-                <i class="fa-solid fa-cart-shopping cart-icon">
-                    <div class="cart-bubble">0</div>
-                  </i>
-            </div>
-
-            <div class="cart">
-
-                <h2>Tus Selecciones</h2>
+            <!-- CART -->
+            <label for="cart-toggle" class="cart-label">
+                <i class="fa-solid fa-cart-shopping cart-icon"> <div class="cart-bubble">0</div></i>
+               
+            </label>
+            <input type="checkbox" id="cart-toggle">
+        <div class="cartmenu">
+            <h2>Tu Selección</h2>
+            <div class="cart-selection">
+                <div class="cart-line"></div>
                 
-                <div class="cart-container">
-
-                    <div><span class="divider"></span></div>
-
-                    <div class="cart-total">
-                        <p>Total</p>
-                        <span class="total">0.0 BTC</span>
+                <div class="cart-items">
+                    
+                 </div>
+                 
+                 <div class="cart-line"></div>
+                 <div class="cart-total">
+                    <h4>Total</h4>
+                    <p class="price-total">$<span class="total">0.0</span> BTC</p>
                     </div>
-                    <button class="btn-but">Comprar</button>
-                    <button class="btn-delete">Vaciar Carrito</button>
+                <div class="cart-buttons">
+                    <button class="hoverbtn clickedbtn chekout-btn">Comprar</button>
+                    <button class="hoverbtn clickedbtn  clear-btn">Vaciar Carrito</button>
+                </div>   
+        </div>  
+        </div>    
+        <div class="overlay"></div>
+        </nav> 
 
-                </div>
-
-                <div class="overlay"></div>
-
-            </div>
-
-        </nav>
+    
     </header>
 
     <main>
@@ -117,58 +117,75 @@
                   nacional, con una consolidación regional y proyección mundial.
                 </p>
         </section>
-        <!--Products-->
-        <section id="products">
-
-            <h2>Nuestros Productos</h2>
-
-            <!--categorias-->
-            <div class="categories">
-                <button class="category active">Todos</button>
-                <button class="category" data-category="saborizados">Saborizados</button>
-                <button class="category" data-category="herboristeria">Herboristeria</button>
-                <button class="category" data-category="especiales">Especiales</button>
-                <button class="category" data-category="comun">Comun</button>
+         <!-- STORE -->
+         <section id="store">
+            <div class="storetitle">
+                <h2>Nuestros Productos</h2>
             </div>
-            <!--productos-->
-            <div class="products-container">
-
+            <div class="store-filter">
+                <button class="category hoverbtn">Todos</button>
+                <button class="category hoverbtn" data-category="saborizados">Saborizados</button>
+                <button class="category hoverbtn" data-category="herboristeria">Herboristeria</button>
+                <button class="category hoverbtn" data-category="especiales" >Especiales</button>
+                <button class="category hoverbtn" data-category="comun" >Comun</button>
             </div>
-            <button class="btn-load">Ver Más</button>
+            <div class="store-products">
+            </div>
+            <button class="show-more-btn hoverbtn">Ver Más</button>
         </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contactanos</h2>
+            <div class="contact-container">
+            
+    
+            <form class="form" id="form" action="contact">
+                <label for="input-name"></label>
+                <input type="text" name="name" id="input-name" placeholder="Nombre"id="name">
+                <label for="input-email"></label>
+                <input type="email" name="email" id="input-email" placeholder="e-mail" id="email">
+                <textarea name="subject" id="subject" cols="30" rows="10" placeholder="Escribe tu mensaje aqui"></textarea>
+                <input class="hoverbtn clickedbtn submit-btn" type="submit" value="Send" id="submit-btn">
+                <p class="hidden" id="form-message"></p>
+            </form>
+            
+        </div>
+        </section>
+
     </main>
     <footer>
         
-            <div class="footer-container">
-              <h2>Contacto</h2>
-              <ul class="footer-list">
-                <li>
-                  <p>E Indian School Rd street</p>
-                </li>
-                <li>
-                  <p>LaVecina77@gmail.com</p>
-                </li>
-                <li>
-                  <p>(+1) 408 354 9852</p>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.4890642561086!2d-111.9603234!3d33.488650799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0d830bf88a63%3A0x8afc9ecb9a337e14!2sVecina!5e0!3m2!1ses!2sar!4v1686681254834!5m2!1ses!2sar"
-                width="200"
-                height="200"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          
-    </footer>
-    <div class="add-modal"></div>
-    <script src="./assets/data.js"></script>
-    <script src="./assets/index.js"></script>
+        <div class="footer-container">
+          <h2>Contacto</h2>
+          <ul class="footer-list">
+            <li>
+              <p>E Indian School Rd street</p>
+            </li>
+            <li>
+              <p>LaVecina77@gmail.com</p>
+            </li>
+            <li>
+              <p>(+1) 408 354 9852</p>
+            </li>
+            <li><img src="./assets/img/logo/Redes Sociales N.png" alt=""></li>
+          </ul>
+        </div>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.4890642561086!2d-111.9603234!3d33.488650799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0d830bf88a63%3A0x8afc9ecb9a337e14!2sVecina!5e0!3m2!1ses!2sar!4v1686681254834!5m2!1ses!2sar"
+            width="200"
+            height="200"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      
+</footer>
+<div class="add-modal"></div>
+<script src="./assets/data.js"></script>
+<script src="./assets/index.js"></script>
     
 </body>
 </html>

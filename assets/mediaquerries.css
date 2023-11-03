@@ -1,0 +1,143 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+:root {
+  /* bg colors */
+  --background: #02050e;
+  --primary: darkred;
+  --secondary: darkgoldenrod;
+  --btn-bg: #260505;
+  --bg-white: #fff;
+  --bg-electric: #f0fbff;
+  --nav-bg: #6f0000;
+
+  /* Text colors */
+  --text-black: black;;
+  --text-white: #f3f4f6;
+
+  /* Decoration */
+  --fire: #ff6d00;
+  --electric: #9c0c41;
+}
+
+/* TABLET  */
+@media screen and (max-width: 768px) {
+    .menu-label{
+        display: flex
+    }
+
+    .fa-bars{
+        color: white;
+    }
+
+    .navbar-list{
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: auto;
+        flex-direction: column;
+        background-color: var(--primary);
+        border-left: 1px solid var(--fire);
+        border-bottom: 1px solid var(--fire);
+        border-radius: 0 0 0 1rem;
+        align-items: flex-end;
+        padding: 20px;
+        gap: 20px;
+        z-index: 2;
+    }
+
+    .open-menu {
+        display: flex;
+        transform: translate(0%);
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+      }
+
+
+#menu-toggle:checked + .nav-list {
+    display: flex;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    height: auto;
+    }
+
+    .contact-container img{
+        max-width: 100%;
+    }
+
+    .cat-fairy{
+        display: none;
+    }
+
+}
+
+/* CELULAR  576pc*/
+@media screen and (max-width:576px){
+    .logo{
+        width: 70%;
+    }
+
+    .divider{
+        height: 30px;
+    }
+
+    .store-filter{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .store-products{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        height: fit-content;
+    }
+    .product-card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 200px;
+        height: 350px;
+        gap: 10px;
+        padding: 35px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 3px 3px 10px 2px rgba(241, 239, 198, 0.4);
+    /* -webkit-box-shadow: 8px 8px 10px -8px rgba(132,90,147,0.75);
+    -moz-box-shadow: 8px 8px 10px -8px rgba(132,90,147,0.75); */
+    }    
+
+    .product-card img{
+        width: 80%;
+       }
+
+
+#about p{
+    max-width: 80%;
+    min-width: 150px;
+}
+
+#about img{
+    max-width: 80%;
+    min-width: 150px;
+}
+
+.form  {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 80%;
+    min-width: 150px;
+    max-width: 450px;
+}
+
+
+}

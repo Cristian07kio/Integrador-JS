@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
     <!--Favicon-->
     <link
       rel="apple-touch-icon"
@@ -22,27 +23,24 @@
       href="./assets/img/logo/Favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./assets/img/logo/Favicon/site.webmanifest" />
-    <!--Pseudoelementos CSS-->
-   <link rel="stylesheet" href="./assets/styles2.css">
     <!--Font Awesome-->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <title>Registro</title>
+    <title>Iniciar Sesión</title>
 </head>
 <body>
-    <form  class="formulario">
-      <button class="formulario-submit"><a href="/index.html">Atras</a></button>
-        <h1 class="titulo-formulario">Inicio Sesion</h1>
-        <input type="email" class="formulario-input">
-        <label for="" class="formulario-label">Correo</label>
-        <input type="text" class="formulario-input">
-        <label for="" class="formulario-label">Usuario</label>
-        <input type="password" class="formulario-input">
-        <label for="" class="formulario-label">Contraseña</label>
-        <input type="submit" class="formulario-submit" value="Login">
-    </form>
-    <script src="./assets/registro.js"></script>
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <form id="login-form" novalidate>
+            <label for="email">Correo:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit" class="login-button">Confirmar</button>
+        </form>
+    </div>
+    <script src="login-script.js"></script>
 </body>
 </html>

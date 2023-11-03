@@ -1,10 +1,17 @@
-const inputs = document.getElementsByClassName('formulario-input');
-for(let i = 0; i < inputs.length; i++){
-    inputs[i].addEventListener('keyup', function(){
-        if(this.value.length>=1){
-            this.nextElementSibling.classList.add('fijar')
-        } else{
-            this.nextElementSibling.classList.remove('fijar')
-        }
-    });
-}
+document.getElementById('register-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+        alert('Por favor, completa todos los campos.');
+    } else if (password !== confirmPassword) {
+        alert('Las contraseñas no coinciden.');
+    } else {
+        window.location.href = 'index.html';
+    }
+});
